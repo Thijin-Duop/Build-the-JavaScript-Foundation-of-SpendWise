@@ -1,0 +1,516 @@
+/* ==========================================
+   SPENDWISE DASHBOARD - WEEK 6
+   ========================================== */
+
+/* 1. CSS VARIABLES */
+
+:root {
+    --navy: #0f172a;
+    --navy-light: #1e293b;
+    --aqua: #14b8a6;
+    --aqua-dark: #0f766e;
+    --background: #f1f5f9;
+    --white: #ffffff;
+    --text: #1e293b;
+    --muted: #64748b;
+    --border: #e2e8f0;
+    --radius: 16px;
+    --shadow: 0 4px 18px rgba(15, 23, 42, 0.06);
+}
+
+/* 2. RESET */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--background);
+    color: var(--text);
+    line-height: 1.6;
+}
+
+button,
+input,
+select {
+    font: inherit;
+}
+
+a {
+    color: inherit;
+}
+
+/* 3. DASHBOARD LAYOUT */
+
+.dashboard {
+    min-height: 100vh;
+}
+
+/* 4. SIDEBAR */
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 250px;
+    padding: 28px 20px;
+    background: var(--navy);
+    color: var(--white);
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    z-index: 10;
+}
+
+.logo {
+    font-size: 27px;
+    letter-spacing: -1px;
+    margin-bottom: 38px;
+}
+
+.logo span {
+    color: var(--aqua);
+}
+
+.sidebar-label {
+    color: #94a3b8;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    margin-bottom: 14px;
+}
+
+.sidebar nav {
+    display: grid;
+    gap: 8px;
+}
+
+.nav-link {
+    display: block;
+    padding: 12px;
+    color: #cbd5e1;
+    text-decoration: none;
+    border-radius: 9px;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    background: var(--navy-light);
+    color: #5eead4;
+}
+
+.sidebar-footer {
+    margin-top: auto;
+    padding-top: 30px;
+    color: #94a3b8;
+    font-size: 13px;
+}
+
+/* 5. MAIN CONTENT */
+
+.main-content {
+    max-width: 1600px;
+    margin-left: 250px;
+    padding: 32px;
+}
+
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 32px;
+}
+
+.eyebrow {
+    color: var(--aqua-dark);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    margin-bottom: 5px;
+}
+
+.topbar h2 {
+    font-size: clamp(24px, 3vw, 32px);
+    line-height: 1.3;
+    margin-bottom: 7px;
+}
+
+.muted,
+.helper-text {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.profile-icon {
+    width: 42px;
+    height: 42px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: var(--navy);
+    color: var(--aqua);
+    font-weight: 700;
+}
+
+.section-title {
+    font-size: 20px;
+    margin-bottom: 16px;
+}
+
+/* 6. FINANCIAL SUMMARY CARDS */
+
+.summary-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+    margin-bottom: 28px;
+}
+
+.summary-card {
+    min-width: 0;
+    padding: 22px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.summary-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(15, 23, 42, 0.09);
+}
+
+.summary-card p {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.summary-card h3 {
+    margin: 10px 0;
+    font-size: clamp(20px, 2vw, 28px);
+    overflow-wrap: anywhere;
+}
+
+.summary-card span {
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.highlight-card {
+    background: #ecfdf5;
+    border-color: #a7f3d0;
+}
+
+.highlight-card h3 {
+    color: var(--aqua-dark);
+}
+
+/* 7. GENERAL PANELS */
+
+.panel {
+    margin-bottom: 28px;
+    padding: 24px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+.panel > h3 {
+    font-size: 20px;
+    margin-bottom: 8px;
+}
+
+.panel > p {
+    margin-bottom: 18px;
+}
+
+.helper-text {
+    margin-top: 14px;
+}
+
+/* 8. BUTTONS */
+
+.primary-button {
+    display: inline-block;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 9px;
+    background: var(--aqua);
+    color: #042f2e;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.primary-button:hover:not(:disabled) {
+    background: #5eead4;
+    transform: translateY(-2px);
+}
+
+.primary-button:active:not(:disabled) {
+    transform: scale(0.98);
+}
+
+.primary-button:disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+}
+
+/* 9. EXPENSE CATEGORIES */
+
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+    margin-bottom: 28px;
+}
+
+.category-card {
+    min-width: 0;
+    padding: 20px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.category-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(15, 23, 42, 0.09);
+}
+
+.category-icon {
+    display: inline-block;
+    font-size: 25px;
+    margin-bottom: 8px;
+}
+
+.category-card h4 {
+    margin-bottom: 4px;
+}
+
+.category-card p {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+/* 10. EXPENSE FORM */
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+    margin: 20px 0;
+}
+
+.form-group {
+    display: grid;
+    align-content: start;
+    gap: 7px;
+    min-width: 0;
+}
+
+.form-group label {
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    min-width: 0;
+    padding: 11px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    background: var(--white);
+    color: var(--text);
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: var(--aqua);
+    outline: 2px solid #99f6e4;
+    outline-offset: 1px;
+}
+
+/* 11. TRANSACTIONS TABLE */
+
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+th,
+td {
+    padding: 14px 12px;
+    border-bottom: 1px solid var(--border);
+    font-size: 14px;
+}
+
+th {
+    background: #f8fafc;
+    color: var(--muted);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+tbody tr:hover {
+    background: #f8fafc;
+}
+
+/* 12. YOUTUBE VIDEO */
+
+.video-container {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background: var(--navy);
+    border-radius: 12px;
+}
+
+.video-container iframe {
+    position: absolute;
+    inset: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+.video-link {
+    display: inline-block;
+    margin-top: 14px;
+    color: var(--aqua-dark);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.video-link:hover {
+    text-decoration: underline;
+}
+
+/* 13. FOOTER */
+
+.footer {
+    padding: 20px 0;
+    text-align: center;
+    color: var(--muted);
+    font-size: 13px;
+}
+
+/* 14. KEYBOARD ACCESSIBILITY */
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible {
+    outline: 3px solid #5eead4;
+    outline-offset: 3px;
+}
+
+/* 15. TABLET RESPONSIVENESS */
+
+@media (max-width: 1000px) {
+    .sidebar {
+        width: 210px;
+    }
+
+    .main-content {
+        margin-left: 210px;
+        padding: 24px;
+    }
+
+    .summary-grid,
+    .category-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* 16. MOBILE RESPONSIVENESS */
+
+@media (max-width: 650px) {
+    .sidebar {
+        position: relative;
+        width: 100%;
+        min-height: auto;
+        padding: 18px;
+    }
+
+    .logo {
+        margin-bottom: 15px;
+    }
+
+    .sidebar-label,
+    .sidebar-footer {
+        display: none;
+    }
+
+    .sidebar nav {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .nav-link {
+        padding: 10px;
+        font-size: 13px;
+    }
+
+    .main-content {
+        margin-left: 0;
+        padding: 18px;
+    }
+
+    .topbar {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .summary-grid,
+    .category-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .panel {
+        padding: 18px;
+    }
+
+    .profile {
+        display: none;
+    }
+
+    .primary-button {
+        max-width: 100%;
+    }
+}

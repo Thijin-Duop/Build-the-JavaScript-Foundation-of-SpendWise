@@ -1,0 +1,276 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SpendWise | Budget Dashboard</title>
+
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+    <div class="dashboard">
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <h1 class="logo">Spend<span>Wise</span></h1>
+            <p class="sidebar-label">MAIN MENU</p>
+
+            <nav>
+                <a href="#overview" class="nav-link active">Dashboard</a>
+                <a href="#budget-calculator" class="nav-link">Budget Calculator</a>
+                <a href="#categories" class="nav-link">Categories</a>
+                <a href="#transactions" class="nav-link">Transactions</a>
+                <a href="#learning" class="nav-link">Learning Resources</a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <p>Manage your money.</p>
+                <p>Build better habits.</p>
+            </div>
+        </aside>
+
+        <!-- Main Dashboard -->
+        <main class="main-content">
+
+            <header class="topbar">
+                <div>
+                    <p class="eyebrow">PERSONAL FINANCE</p>
+                    <h2>My Budget Dashboard</h2>
+                    <p class="muted">
+                        Track your spending and plan your future.
+                    </p>
+                </div>
+
+                <div class="profile">
+                    <div class="profile-icon">SW</div>
+                    <span>My Account</span>
+                </div>
+            </header>
+
+            <!-- Financial Overview -->
+            <section id="overview">
+                <h3 class="section-title">Financial Overview</h3>
+
+                <div class="summary-grid">
+                    <article class="summary-card">
+                        <p>Monthly Budget</p>
+                        <h3>KSh 50,000</h3>
+                        <span>Sample budget</span>
+                    </article>
+
+                    <article class="summary-card">
+                        <p>Total Expenses</p>
+                        <h3>KSh 15,000</h3>
+                        <span>Sample spending</span>
+                    </article>
+
+                    <article class="summary-card highlight-card">
+                        <p>Remaining Balance</p>
+                        <h3>KSh 35,000</h3>
+                        <span>Sample balance</span>
+                    </article>
+                </div>
+            </section>
+
+            <!-- Budget Calculator -->
+            <section class="panel" id="budget-calculator">
+                <h3>Budget Calculator</h3>
+
+                <p>
+                    Enter your monthly budget and total expenses
+                    to calculate your remaining balance.
+                </p>
+
+                <button
+                    type="button"
+                    id="calculate-budget"
+                    class="primary-button">
+                    Calculate My Balance
+                </button>
+
+                <p class="helper-text">
+                    Your results will appear in Chrome's Console.
+                </p>
+            </section>
+
+            <!-- Expense Categories -->
+            <section id="categories">
+                <h3 class="section-title">Expense Categories</h3>
+
+                <div class="category-grid">
+                    <article class="category-card">
+                        <span class="category-icon">🍲</span>
+                        <h4>Food</h4>
+                        <p>Meals and groceries</p>
+                    </article>
+
+                    <article class="category-card">
+                        <span class="category-icon">🚌</span>
+                        <h4>Transport</h4>
+                        <p>Travel expenses</p>
+                    </article>
+
+                    <article class="category-card">
+                        <span class="category-icon">🏠</span>
+                        <h4>Housing</h4>
+                        <p>Rent and utilities</p>
+                    </article>
+
+                    <article class="category-card">
+                        <span class="category-icon">📚</span>
+                        <h4>Education</h4>
+                        <p>Learning expenses</p>
+                    </article>
+
+                    <article class="category-card">
+                        <span class="category-icon">💊</span>
+                        <h4>Health</h4>
+                        <p>Medical expenses</p>
+                    </article>
+
+                    <article class="category-card">
+                        <span class="category-icon">✨</span>
+                        <h4>Other</h4>
+                        <p>Additional spending</p>
+                    </article>
+                </div>
+            </section>
+
+            <!-- Sample Add Expense Form -->
+            <section class="panel" id="add-expense">
+                <h3>Add Expense</h3>
+
+                <p class="muted">
+                    This sample form is for the dashboard layout.
+                    Expense saving is not implemented yet.
+                </p>
+
+                <form id="expense-form">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="expense-name">Expense name</label>
+                            <input
+                                type="text"
+                                id="expense-name"
+                                placeholder="e.g. Groceries">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="expense-amount">Amount (KSh)</label>
+                            <input
+                                type="number"
+                                id="expense-amount"
+                                min="0"
+                                step="0.01"
+                                placeholder="e.g. 1500">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="expense-category">Category</label>
+                            <select id="expense-category">
+                                <option value="">Choose a category</option>
+                                <option>Food</option>
+                                <option>Transport</option>
+                                <option>Housing</option>
+                                <option>Education</option>
+                                <option>Health</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <button type="button" class="primary-button" disabled>
+                        Add Expense (Coming Soon)
+                    </button>
+                </form>
+            </section>
+
+            <!-- Recent Transactions -->
+            <section class="panel" id="transactions">
+                <h3>Recent Transactions</h3>
+
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Expense</th>
+                                <th>Category</th>
+                                <th>Amount</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td>Groceries</td>
+                                <td>Food</td>
+                                <td>KSh 5,000</td>
+                            </tr>
+                            <tr>
+                                <td>Transport</td>
+                                <td>Transport</td>
+                                <td>KSh 3,000</td>
+                            </tr>
+                            <tr>
+                                <td>Learning materials</td>
+                                <td>Education</td>
+                                <td>KSh 2,000</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <p class="helper-text">
+                    These are sample transactions.
+                </p>
+            </section>
+
+            <!-- YouTube Learning Video -->
+            <section class="panel" id="learning">
+                <h3>Learning Resources</h3>
+
+                <p>
+                    Watch the video below as part of your learning resources.
+                </p>
+
+                <div class="video-container">
+                    <iframe
+                        src="https://www.youtube.com/embed/KPpouY3N6Vs"
+                        title="SpendWise Learning Video"
+                        loading="lazy"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+
+                <p class="helper-text">
+                    If playback is unavailable, open the video directly on YouTube.
+                </p>
+
+                <a
+                    class="video-link"
+                    href="https://www.youtube.com/watch?v=KPpouY3N6Vs&list=RDKPpouY3N6Vs&start_radio=1"
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    Watch on YouTube ↗
+                </a>
+            </section>
+
+            <!-- Footer -->
+            <footer class="footer">
+                <p>
+                    &copy; 2026 SpendWise Dashboard |
+                    Week 6 JavaScript Assignment
+                </p>
+            </footer>
+
+        </main>
+    </div>
+
+</body>
+</html>
+```
